@@ -33,7 +33,7 @@ export class Robot {
     }
 
     reset = () => {
-        this._name = this.setName();
+        this._name = this.#setName();
     }
 
 }
