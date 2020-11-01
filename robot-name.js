@@ -7,22 +7,11 @@ export class Robot {
     static usedNames = new Set();
 
     constructor () {
-        this.namesUsed = new Set();
         this._name = this.setName();
     }
 
     get name() {
         return this._name
-    }
-
-    generateName = () => {
-
-        const   letter = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-                digit = '0123456789' ,
-                random = (string) => { return string[ Math.floor ( Math.random() * (string.length ) ) ] }
-        let name = random(letter) + random(letter) + random(digit) + random(digit) + random(digit);
-
-        return name
     }
 
     setName = () => {
@@ -34,10 +23,19 @@ export class Robot {
         return name
     }
 
+    generateName = () => {
+        const   letter = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+                digit = '0123456789' ,
+                random = (string) => { return string[ Math.floor ( Math.random() * (string.length ) ) ] }
+        let name = random(letter) + random(letter) + random(digit) + random(digit) + random(digit);
+
+        return name
+    }
+
     reset = () => {
         this._name = this.setName();
     }
 
 }
 
-Robot.releaseNames = () => { } //namesUsed.clear() };
+Robot.releaseNames = () => { } //Robot.namesUsed.clear() };
