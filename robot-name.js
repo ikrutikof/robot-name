@@ -4,6 +4,8 @@
 
 export class Robot { 
     
+    static usedNames = new Set();
+
     constructor () {
         this.namesUsed = new Set();
         this._name = this.setName();
@@ -27,8 +29,8 @@ export class Robot {
         let name
         do {
             name = this.generateName();
-        } while (this.namesUsed.has (name) )
-        this.namesUsed.add(name);
+        } while (Robot.usedNames.has (name) )
+        Robot.usedNames.add(name);
         return name
     }
 
