@@ -38,4 +38,4 @@ export class Robot {
 
 }
 
-Robot.releaseNames = () => { } //Robot.namesUsed.clear() };
+Robot.releaseNames = () => { Robot.usedNames.clear() } ;
