@@ -7,23 +7,23 @@ export class Robot {
     static usedNames = new Set();
 
     constructor () {
-        this._name = this.setName();
+        this._name = this.#setName();
     }
 
     get name() {
         return this._name
     }
 
-    setName = () => {
+    #setName = () => {
         let name
         do {
-            name = this.generateName();
+            name = this.#generateName();
         } while (Robot.usedNames.has (name) )
         Robot.usedNames.add(name);
         return name
     }
 
-    generateName = () => {
+    #generateName = () => {
         const   letter = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
                 digit = '0123456789' ,
                 random = (string) => { return string[ Math.floor ( Math.random() * (string.length ) ) ] }
